@@ -30,3 +30,4 @@ import { AddPostComponent } from './components/add-post/add-post.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

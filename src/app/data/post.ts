@@ -14,3 +14,4 @@ export interface Category {
 export type PostCreateInput = Omit<Post, 'id' | 'createdDate' | 'category'> & { categoryId: string };
 
 export type CategoryCreateInput = Omit<Category, 'id'>;
+

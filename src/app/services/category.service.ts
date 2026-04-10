@@ -33,3 +33,4 @@ export class CategoryService {
     return this.http.delete<void>(`${this.categoriesUrl}/${id}`);
   }
 }
+

@@ -10,3 +10,4 @@ export class PostListItemComponent {
 
   @Input() post!: Post;
 }
+
