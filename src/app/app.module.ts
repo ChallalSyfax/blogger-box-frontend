@@ -10,6 +10,7 @@ import { PostListComponent } from './components/post-list/post-list.component';
 import { PostListItemComponent } from './components/post-list-item/post-list-item.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
