@@ -1,0 +1,14 @@
+<div class="card h-100">
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title }}</h5>
+    <p class="card-text">{{ post.content }}</p>
+  </div>
+  <div class="card-footer d-flex justify-content-between align-items-center">
+    <small class="text-muted">
+      <i class="bi bi-calendar"></i> {{ post.createdDate | date: 'dd/MM/yyyy' }}
+    </small>
+    <span class="badge bg-success" *ngIf="post.category">
+      {{ post.category.name }}
+    </span>
+  </div>
+</div>

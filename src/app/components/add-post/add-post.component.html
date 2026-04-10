@@ -1,0 +1,80 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <span class="fw-bold">Blogger-Box</span>
+          <button class="btn btn-outline-success btn-sm" type="button" [routerLink]="['/add-post']">
+            Post &#9998;
+          </button>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="postForm" (ngSubmit)="onSubmit()" autocomplete="off">
+
+            <!-- Title -->
+            <div class="mb-3">
+              <label for="title" class="form-label">Title:</label>
+              <input
+                type="text"
+                id="title"
+                class="form-control"
+                formControlName="title"
+                [class.is-invalid]="title.invalid && title.touched"
+                [class.is-valid]="title.valid && title.touched"
+              />
+              <div class="invalid-feedback text-danger" *ngIf="title.invalid && title.touched">
+                <div *ngIf="title.errors?.['required']">Title is required</div>
+                <div *ngIf="title.errors?.['minlength']">Title should be at least 5 characters</div>
+                <div *ngIf="title.errors?.['maxlength']">Title should not exceed 150 characters</div>
+              </div>
+            </div>
+
+            <!-- Category -->
+            <div class="mb-3">
+              <label for="categoryId" class="form-label">Category:</label>
+              <select
+                id="categoryId"
+                class="form-select"
+                formControlName="categoryId"
+                [class.is-invalid]="categoryId.invalid && categoryId.touched"
+                [class.is-valid]="categoryId.valid && categoryId.touched"
+              >
+                <option value="" disabled>Select a category</option>
+                <option *ngFor="let category of categories" [value]="category.id">
+                  {{ category.name }}
+                </option>
+              </select>
+              <div class="invalid-feedback text-danger" *ngIf="categoryId.invalid && categoryId.touched">
+                <div *ngIf="categoryId.errors?.['required']">Category is required</div>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="mb-3">
+              <label for="content" class="form-label">Content:</label>
+              <textarea
+                id="content"
+                class="form-control"
+                formControlName="content"
+                rows="6"
+                [class.is-invalid]="content.invalid && content.touched"
+                [class.is-valid]="content.valid && content.touched"
+              ></textarea>
+              <div class="invalid-feedback text-danger" *ngIf="content.invalid && content.touched">
+                <div *ngIf="content.errors?.['required']">Content is required</div>
+                <div *ngIf="content.errors?.['maxlength']">Post content should not exceed 2500 characters</div>
+              </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex justify-content-end gap-2">
+              <button type="button" class="btn btn-outline-danger" [routerLink]="['/']">Close</button>
+              <button type="submit" class="btn btn-success">Post message</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
