@@ -7,9 +7,14 @@
     <small class="text-muted">
       <i class="bi bi-calendar"></i> {{ post.createdDate | date: 'dd/MM/yyyy' }}
     </small>
-    <span class="badge bg-success" *ngIf="post.category">
-      {{ post.category.name }}
-    </span>
+    <div class="d-flex align-items-center gap-2">
+      <span class="badge bg-success" *ngIf="post.category">
+        {{ post.category.name }}
+      </span>
+      <button class="btn btn-outline-danger btn-sm" (click)="onDelete()">
+        <i class="bi bi-trash"></i>
+      </button>
+    </div>
   </div>
 </div>
 

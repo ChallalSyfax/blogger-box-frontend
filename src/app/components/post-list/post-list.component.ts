@@ -18,5 +18,9 @@ export class PostListComponent implements OnInit {
       this.posts = posts;
     });
   }
+
+  onPostDeleted(id: string): void {
+    this.posts = this.posts.filter(p => p.id !== id);
+  }
 }
 
