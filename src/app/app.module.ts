@@ -9,7 +9,9 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { PostListItemComponent } from './components/post-list-item/post-list-item.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
-
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
+import { EditPostComponent } from './components/edit-post/edit-post.component';
+import { ReadingTimePipe } from './pipes/reading-time.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,10 @@ import { AddPostComponent } from './components/add-post/add-post.component';
     TopBarComponent,
     PostListComponent,
     PostListItemComponent,
-    AddPostComponent
+    AddPostComponent,
+    PostDetailComponent,
+    EditPostComponent,
+    ReadingTimePipe
   ],
   imports: [
     BrowserModule,
@@ -30,4 +35,3 @@ import { AddPostComponent } from './components/add-post/add-post.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-

@@ -1,13 +1,11 @@
-<nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" [routerLink]="['/']">
-      <i class="bi bi-postcard"></i> Blogger-Box
+<nav class="top-bar">
+  <div class="top-bar-inner">
+    <a class="brand" [routerLink]="['/']">
+      <span class="brand-icon"><i class="bi bi-journals"></i></span>
+      <span class="brand-name">Blogger<span class="brand-accent">Box</span></span>
     </a>
-    <form class="d-flex">
-      <button class="btn btn-outline-success" type="button" [routerLink]="['/add-post']">
-        Post &#9998;
-      </button>
-    </form>
+    <button class="write-btn" type="button" [routerLink]="['/add-post']">
+      <i class="bi bi-pencil-square"></i> Write
+    </button>
   </div>
 </nav>
-

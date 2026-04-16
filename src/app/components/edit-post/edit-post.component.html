@@ -2,11 +2,18 @@
   <div class="form-container">
 
     <div class="form-header">
-      <h1 class="form-title">New Post</h1>
-      <p class="form-subtitle">Share your thoughts with the world</p>
+      <button class="btn-back" (click)="goBack()">
+        <i class="bi bi-arrow-left"></i> Back
+      </button>
+      <h1 class="form-title">Edit Post</h1>
+      <p class="form-subtitle">Update your story</p>
     </div>
 
-    <form [formGroup]="postForm" (ngSubmit)="onSubmit()" autocomplete="off" class="post-form">
+    <div *ngIf="loading" class="loading-state">
+      <div class="spinner"></div>
+    </div>
+
+    <form *ngIf="!loading" [formGroup]="editForm" (ngSubmit)="onSubmit()" autocomplete="off" class="post-form">
 
       <div class="field-group">
         <label for="title" class="field-label">Title</label>
@@ -17,7 +24,6 @@
           [class.invalid]="title.invalid && title.touched"
           [class.valid]="title.valid && title.touched"
           formControlName="title"
-          placeholder="An interesting title..."
         />
         <div class="field-error" *ngIf="title.invalid && title.touched">
           <span *ngIf="title.errors?.['required']">Title is required</span>
@@ -54,7 +60,6 @@
           [class.valid]="content.valid && content.touched"
           formControlName="content"
           rows="8"
-          placeholder="Write your post here..."
         ></textarea>
         <div class="field-error" *ngIf="content.invalid && content.touched">
           <span *ngIf="content.errors?.['required']">Content is required</span>
@@ -63,11 +68,11 @@
       </div>
 
       <div class="form-actions">
-        <button type="button" class="btn-cancel" [routerLink]="['/']">
+        <button type="button" class="btn-cancel" (click)="goBack()">
           <i class="bi bi-x"></i> Cancel
         </button>
         <button type="submit" class="btn-publish">
-          <i class="bi bi-send"></i> Publish
+          <i class="bi bi-check-lg"></i> Save changes
         </button>
       </div>
 

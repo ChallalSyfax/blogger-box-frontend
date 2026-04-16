@@ -1,0 +1,38 @@
+<div class="detail-wrapper">
+
+  <div *ngIf="loading" class="loading-state">
+    <div class="spinner"></div>
+  </div>
+
+  <div *ngIf="notFound" class="not-found">
+    <i class="bi bi-journal-x"></i>
+    <p>Post not found.</p>
+    <button class="btn-back" (click)="goBack()">Back to posts</button>
+  </div>
+
+  <article *ngIf="post && !loading" class="detail-article">
+    <header class="detail-header">
+      <button class="btn-back" (click)="goBack()">
+        <i class="bi bi-arrow-left"></i> Back
+      </button>
+      <div class="detail-meta">
+        <span class="detail-category" *ngIf="post.category">{{ post.category.name }}</span>
+        <span class="detail-date">{{ post.createdDate | date: 'MMMM d, yyyy' }}</span>
+        <span class="detail-reading">{{ post.content | readingTime }}</span>
+      </div>
+      <h1 class="detail-title">{{ post.title }}</h1>
+      <div class="detail-actions">
+        <button class="btn-edit" (click)="goEdit()">
+          <i class="bi bi-pencil"></i> Edit
+        </button>
+      </div>
+    </header>
+
+    <div class="detail-divider"></div>
+
+    <div class="detail-content">
+      <p>{{ post.content }}</p>
+    </div>
+  </article>
+
+</div>

@@ -1,20 +1,24 @@
-<div class="card h-100">
-  <div class="card-body">
-    <h5 class="card-title">{{ post.title }}</h5>
-    <p class="card-text">{{ post.content }}</p>
+<article class="post-card" [routerLink]="['/posts', post.id]">
+  <div class="post-card-body">
+    <div class="post-meta">
+      <span class="post-category" *ngIf="post.category">{{ post.category.name }}</span>
+      <span class="post-date">{{ post.createdDate | date: 'MMM d, yyyy' }}</span>
+    </div>
+    <h2 class="post-title">{{ post.title }}</h2>
+    <p class="post-excerpt">{{ post.content }}</p>
   </div>
-  <div class="card-footer d-flex justify-content-between align-items-center">
-    <small class="text-muted">
-      <i class="bi bi-calendar"></i> {{ post.createdDate | date: 'dd/MM/yyyy' }}
-    </small>
-    <div class="d-flex align-items-center gap-2">
-      <span class="badge bg-success" *ngIf="post.category">
-        {{ post.category.name }}
+  <div class="post-card-footer">
+    <div class="post-divider"></div>
+    <div class="post-actions">
+      <span class="post-reading">
+        <i class="bi bi-clock"></i> {{ post.content | readingTime }}
       </span>
-      <button class="btn btn-outline-danger btn-sm" (click)="onDelete()">
-        <i class="bi bi-trash"></i>
-      </button>
+      <div class="action-btns">
+        <span class="read-more">Read more <i class="bi bi-arrow-right"></i></span>
+        <button class="delete-btn" (click)="onDelete($event)" title="Delete post">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
     </div>
   </div>
-</div>
-
+</article>
