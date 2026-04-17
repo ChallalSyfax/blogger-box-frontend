@@ -1,28 +1,46 @@
-# BloggerBoxFrontend
+# Blogger Box – Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Application Angular pour le projet Blogger Box (M1 MIAGE Dauphine).
 
-## Development server
+## Stack
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular 17
+- Bootstrap 5
+- Node 18+
 
-## Code scaffolding
+## Prérequis
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Node.js 18+
+- Angular CLI : `npm install -g @angular/cli`
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm install
+```
 
-## Running unit tests
+## Lancement (développement)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Le backend doit tourner sur `http://localhost:8080`.
 
-## Running end-to-end tests
+```bash
+ng serve
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+L'application est disponible sur `http://localhost:4200`.
 
-## Further help
+## Build de production
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+ng build
+```
 
+Les fichiers compilés sont dans `dist/`.
+
+## Fonctionnalités
+
+- Affichage de la liste des posts
+- Création, modification et suppression de posts
+- Filtrage par catégorie et recherche par titre/contenu
+- Affichage du détail d'un post
+- Temps de lecture estimé
